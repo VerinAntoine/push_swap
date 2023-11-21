@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:10:19 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 10:10:39 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/21 11:33:21 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		ft_stk_push(t_stack *from, t_stack *to);
 void		ft_stk_rotate(t_stack *stack);
 void		ft_stk_rvs_rotate(t_stack *stack);
 
+void		ft_stk_is_ordered(t_stack *stack);
 void		ft_stk_add(t_stack *stack, int value);
 void		ft_stk_free(t_stack *stack);
 void		ft_stk_print(t_stack *stack);
