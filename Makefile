@@ -3,15 +3,34 @@ CC			= cc
 CCFLAGS		= -Wall -Wextra -Werror
 INCLUDES	= includes/
 SRCS		= main.c
-OBJS		= ${addprefix obj/, ${SRCS:.c=.o}}
+STACK_SRCS	= $(addprefix ft_stack/, ft_stk_add.c ft_stk_last.c ft_stk_print.c ft_stk_swap.c ft_stk_free.c)
+OBJS		= ${addprefix obj/, ${SRCS:.c=.o} ${STACK_SRCS:.c=.o}}
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) libft/libft.a
 	@echo '* Assembling $@'
-	@$(CC) $(CCFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CCFLAGS) $(OBJS) libft/libft.a -o $(NAME)
 
 obj/%.o: %.c
+	@mkdir -p obj
+	@mkdir -p obj/ft_stack
 	@echo '- Compiling $<'
 	@$(CC) $(CCFLAGS) -c $< -o $@ -I $(INCLUDES)
+
+libft/libft.a:
+	@echo '* Making libft'
+	@make -C libft
+
+relib:
+	@echo '* Remaking libft'
+	@make re -C libft
+
+cleanlib:
+	@echo '* Cleaning libft'
+	@make clean -C libft
+
+fcleanlib:
+	@echo '* Cleaning libft'
+	@make fclean -C libft
 
 all: $(NAME)
 
