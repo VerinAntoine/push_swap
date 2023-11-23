@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_add.c                                       :+:      :+:    :+:   */
+/*   ft_stk_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:46:14 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 14:22:56 by averin           ###   ########.fr       */
+/*   Created: 2023/11/22 11:18:22 by averin            #+#    #+#             */
+/*   Updated: 2023/11/22 11:20:35 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-//TODO: Escalade error
-void	ft_stk_add(t_stack *stack, int value)
+void	ft_stk_push(t_stack *from, t_stack *to)
 {
 	t_stk_item	*item;
-	
-	item = ft_calloc(1, sizeof(t_stk_item));
-	item->value = value;
-	if (!item)
-		return ;
-	if (!stack->items)
-		stack->items = item;
-	else
-	{
-		item->previous = ft_stk_last(stack);
-		ft_stk_last(stack)->next = item;
-	}
+
+	item = from->items;
+	item->next->previous = NULL;
+	from->items = item->next;
+	item->next = to->items;
+	to->items = item;
 }

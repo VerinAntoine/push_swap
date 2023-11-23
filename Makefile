@@ -1,9 +1,11 @@
 NAME		= push_swap
 CC			= cc
-CCFLAGS		= -Wall -Wextra -Werror
+CCFLAGS		= -Wall -Wextra -Werror -g3
 INCLUDES	= includes/
 SRCS		= main.c
-STACK_SRCS	= $(addprefix ft_stack/, ft_stk_add.c ft_stk_last.c ft_stk_print.c ft_stk_swap.c ft_stk_free.c)
+STACK_SRCS	= $(addprefix ft_stack/, ft_stk_add.c ft_stk_last.c ft_stk_print.c\
+				ft_stk_swap.c ft_stk_free.c ft_stk_remove.c ft_stk_rotate.c\
+				ft_stk_rvs_rotate.c ft_stk_push.c)
 OBJS		= ${addprefix obj/, ${SRCS:.c=.o} ${STACK_SRCS:.c=.o}}
 
 $(NAME): $(OBJS) libft/libft.a

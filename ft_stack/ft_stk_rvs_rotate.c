@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_add.c                                       :+:      :+:    :+:   */
+/*   ft_stk_rvs_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:46:14 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 14:22:56 by averin           ###   ########.fr       */
+/*   Created: 2023/11/22 11:13:32 by averin            #+#    #+#             */
+/*   Updated: 2023/11/22 11:17:21 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-//TODO: Escalade error
-void	ft_stk_add(t_stack *stack, int value)
+void	ft_stk_rvs_rotate(t_stack *stack)
 {
-	t_stk_item	*item;
-	
-	item = ft_calloc(1, sizeof(t_stk_item));
-	item->value = value;
-	if (!item)
+	t_stk_item	*first;
+	t_stk_item	*last;
+
+	first = stack->items;
+	if (!first)
 		return ;
-	if (!stack->items)
-		stack->items = item;
-	else
-	{
-		item->previous = ft_stk_last(stack);
-		ft_stk_last(stack)->next = item;
-	}
+	last = ft_stk_last(stack);
+	stack->items = first->next;
+	first->next->previous = NULL;
+	last->next = first;
+	first->previous = last;
+	first->next = NULL;
 }
