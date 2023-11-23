@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:13:32 by averin            #+#    #+#             */
-/*   Updated: 2023/11/22 11:17:21 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:36:22 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ void	ft_stk_rvs_rotate(t_stack *stack)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
+	ft_printf("rr%c\n", stack->name);
 }

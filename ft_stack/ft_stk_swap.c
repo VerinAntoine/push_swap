@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:27:41 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 09:32:56 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:34:36 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	ft_stk_swap(t_stack *stack)
 	first->next = second;
 	second->previous = first;
 	first->previous = NULL;
+	ft_printf("s%c\n", stack->name);
 }
