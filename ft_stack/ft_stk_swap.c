@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:27:41 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 12:34:36 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/23 13:55:02 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_stk_swap(t_stack *stack)
 {
 	t_stk_item	*second;
 	t_stk_item	*first;
-	
+
 	second = stack->items;
 	first = second->next;
 	stack->items = first;

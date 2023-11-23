@@ -6,13 +6,13 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:18:03 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 10:20:00 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/23 13:55:20 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void		ft_stk_free(t_stack *stack)
+void	ft_stk_free(t_stack *stack)
 {
 	t_stk_item	*item;
 	t_stk_item	*next;
