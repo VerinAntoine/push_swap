@@ -32,7 +32,7 @@ void			stack_rvs_rotate(t_stack *stack);
 
 int				stack_is_ordered(t_stack *stack);
 int				stack_add(t_stack *stack, int value);
-void			stack_remove(t_stack *stack, t_stack_item *item);
+
 void			stack_free(t_stack *stack);
 void			stack_print(t_stack *stack);
 t_stack_item	*stack_last(t_stack *stack);
