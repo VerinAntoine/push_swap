@@ -14,7 +14,7 @@
 
 int	ft_stk_is_ordered(t_stack *stack)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
 	item = stack->items;
 	if (item == NULL)

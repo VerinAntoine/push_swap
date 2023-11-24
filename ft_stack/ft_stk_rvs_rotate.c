@@ -14,8 +14,8 @@
 
 void	ft_stk_rvs_rotate(t_stack *stack)
 {
-	t_stk_item	*first;
-	t_stk_item	*last;
+	t_stack_item	*first;
+	t_stack_item	*last;
 
 	first = stack->items;
 	if (!first)
@@ -26,5 +26,4 @@ void	ft_stk_rvs_rotate(t_stack *stack)
 	last->next = first;
 	first->previous = last;
 	first->next = NULL;
-	ft_printf("rr%c\n", stack->name);
 }

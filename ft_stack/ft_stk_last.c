@@ -12,9 +12,9 @@
 
 #include "ft_stack.h"
 
-t_stk_item	*ft_stk_last(t_stack *stack)
+t_stack_item	*ft_stk_last(t_stack *stack)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
 	item = stack->items;
 	if (item == NULL)

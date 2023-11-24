@@ -14,7 +14,7 @@
 
 void	ft_stk_print(t_stack *stack)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
 	item = stack->items;
 	ft_printf("stack %c: ", stack->name);

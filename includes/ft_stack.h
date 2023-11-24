@@ -14,14 +14,14 @@
 # define FT_STACK_H
 # include "libft.h"
 
-typedef struct s_stk_item {
+typedef struct s_stack_item {
 	int					value;
-	struct s_stk_item	*next;
-	struct s_stk_item	*previous;
-}	t_stk_item;
+	struct s_stack_item	*next;
+	struct s_stack_item	*previous;
+}	t_stack_item;
 
 typedef struct s_stack {
-	t_stk_item	*items;
+	t_stack_item	*items;
 	char		name;
 }	t_stack;
 
@@ -31,10 +31,10 @@ void		ft_stk_rotate(t_stack *stack);
 void		ft_stk_rvs_rotate(t_stack *stack);
 
 int			ft_stk_is_ordered(t_stack *stack);
-void		ft_stk_add(t_stack *stack, int value);
-void		ft_stk_remove(t_stack *stack, t_stk_item *item);
+int			ft_stk_add(t_stack *stack, int value);
+void		ft_stk_remove(t_stack *stack, t_stack_item *item);
 void		ft_stk_free(t_stack *stack);
 void		ft_stk_print(t_stack *stack);
-t_stk_item	*ft_stk_last(t_stack *stack);
+t_stack_item	*ft_stk_last(t_stack *stack);
 
 #endif

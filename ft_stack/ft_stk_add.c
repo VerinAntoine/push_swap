@@ -12,14 +12,13 @@
 
 #include "ft_stack.h"
 
-//TODO: Escalade error
-void	ft_stk_add(t_stack *stack, int value)
+int	ft_stk_add(t_stack *stack, int value)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
-	item = ft_calloc(1, sizeof(t_stk_item));
+	item = ft_calloc(1, sizeof(t_stack_item));
 	if (!item)
-		return ;
+		return (FALSE);
 	item->value = value;
 	if (!stack->items)
 		stack->items = item;
@@ -28,4 +27,5 @@ void	ft_stk_add(t_stack *stack, int value)
 		item->previous = ft_stk_last(stack);
 		ft_stk_last(stack)->next = item;
 	}
+	return (TRUE);
 }

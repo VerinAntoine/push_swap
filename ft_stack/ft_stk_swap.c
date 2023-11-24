@@ -14,8 +14,8 @@
 
 void	ft_stk_swap(t_stack *stack)
 {
-	t_stk_item	*second;
-	t_stk_item	*first;
+	t_stack_item	*second;
+	t_stack_item	*first;
 
 	second = stack->items;
 	first = second->next;
@@ -24,5 +24,4 @@ void	ft_stk_swap(t_stack *stack)
 	first->next = second;
 	second->previous = first;
 	first->previous = NULL;
-	ft_printf("s%c\n", stack->name);
 }

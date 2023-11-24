@@ -14,8 +14,8 @@
 
 void	ft_stk_free(t_stack *stack)
 {
-	t_stk_item	*item;
-	t_stk_item	*next;
+	t_stack_item	*item;
+	t_stack_item	*next;
 
 	item = stack->items;
 	while (item)

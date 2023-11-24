@@ -27,7 +27,7 @@ static int	is_number(char *s)
 
 static int	is_in(t_stack *stack, int i)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
 	item = stack->items;
 	if (!item)

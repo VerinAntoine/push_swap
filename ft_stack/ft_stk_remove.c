@@ -12,7 +12,7 @@
 
 #include "ft_stack.h"
 
-void	ft_stk_remove(t_stack *stack, t_stk_item *item)
+void	ft_stk_remove(t_stack *stack, t_stack_item *item)
 {
 	if (item->previous)
 		item->previous->next = item->next;

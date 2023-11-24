@@ -14,8 +14,8 @@
 
 void	ft_stk_rotate(t_stack *stack)
 {
-	t_stk_item	*a;
-	t_stk_item	*b;
+	t_stack_item	*a;
+	t_stack_item	*b;
 
 	a = stack->items;
 	if (!a)
@@ -26,5 +26,4 @@ void	ft_stk_rotate(t_stack *stack)
 	b->next = a;
 	a->previous = b;
 	b->previous = NULL;
-	ft_printf("r%c\n", stack->name);
 }

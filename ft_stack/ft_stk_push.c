@@ -14,12 +14,11 @@
 
 void	ft_stk_push(t_stack *from, t_stack *to)
 {
-	t_stk_item	*item;
+	t_stack_item	*item;
 
 	item = from->items;
 	item->next->previous = NULL;
 	from->items = item->next;
 	item->next = to->items;
 	to->items = item;
-	ft_printf("p%c\n", to->name);
 }
