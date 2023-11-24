@@ -25,14 +25,30 @@ static int	is_number(char *s)
 	return (TRUE);
 }
 
+static int	is_in(t_stack *stack, int i)
+{
+	t_stk_item	*item;
+
+	item = stack->items;
+	if (!item)
+		return (FALSE);
+	while (item)
+	{
+		if (item->value == i)
+			return (TRUE);
+		item = item->next;
+	}
+	return (FALSE);
+}
+
 /**
- * Parse arguments to a stack
  * @warning NULLABLE
 */
 t_stack	*ps_parse(int n, char **args)
 {
 	t_stack	*stack;
 	int		i;
+	int		number;
 
 	stack = ft_calloc(1, sizeof(t_stack));
 	if (!stack)
@@ -40,9 +56,10 @@ t_stack	*ps_parse(int n, char **args)
 	i = -1;
 	while (++i < n)
 	{
-		if (!is_number(args[i]))
+		number = ft_atoi(args[i]);
+		if (!is_number(args[i]) || is_in(stack, number))
 			return (ft_printf("Error\n"), ft_stk_free(stack), NULL);
-		ft_stk_add(stack, ft_atoi(args[i]));
+		ft_stk_add(stack, number);
 	}
 	return (stack);
 }
