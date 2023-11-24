@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_add.c                                       :+:      :+:    :+:   */
+/*   ps_operation.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:46:14 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:55:06 by averin           ###   ########.fr       */
+/*   Created: 2023/11/24 20:41:33 by averin            #+#    #+#             */
+/*   Updated: 2023/11/24 20:56:31 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "push_swap.h"
 
-int	ft_stk_add(t_stack *stack, int value)
+void	ps_sx(t_stack *s)
 {
-	t_stack_item	*item;
+	stack_swap(s);
+	ft_printf("s%c\n", s->name);
+}
 
-	item = ft_calloc(1, sizeof(t_stack_item));
-	if (!item)
-		return (FALSE);
-	item->value = value;
-	if (!stack->items)
-		stack->items = item;
-	else
-	{
-		item->previous = ft_stk_last(stack);
-		ft_stk_last(stack)->next = item;
-	}
-	return (TRUE);
+void	ps_ss(t_stack *a, t_stack *b)
+{
+	stack_swap(a);
+	stack_swap(b);
+	ft_printf("ss");
+}
+
+void	ps_px(t_stack *from, t_stack *to)
+{
+	stack_push(from, to);
+	ft_printf("p%c\n", to->name);
 }

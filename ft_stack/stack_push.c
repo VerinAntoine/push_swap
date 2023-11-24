@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_remove.c                                    :+:      :+:    :+:   */
+/*   stack_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 12:56:34 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 13:35:26 by averin           ###   ########.fr       */
+/*   Created: 2023/11/22 11:18:22 by averin            #+#    #+#             */
+/*   Updated: 2023/11/23 12:35:23 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_stk_remove(t_stack *stack, t_stack_item *item)
+void	stack_push(t_stack *from, t_stack *to)
 {
-	if (item->previous)
-		item->previous->next = item->next;
-	if (item->next)
-		item->next->previous = item->previous;
-	if (stack->items == item)
-		stack->items = item->next;
-	free(item);
+	t_stack_item	*item;
+
+	item = from->items;
+	item->next->previous = NULL;
+	from->items = item->next;
+	item->next = to->items;
+	to->items = item;
 }

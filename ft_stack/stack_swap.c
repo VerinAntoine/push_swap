@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 12:32:57 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:56:10 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 09:27:41 by averin            #+#    #+#             */
+/*   Updated: 2023/11/23 13:55:02 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "libft.h"
-# include "ft_stack.h"
+#include "ft_stack.h"
 
-void	ps_sx(t_stack *s);
-void	ps_ss(t_stack *a, t_stack *b);
-void	ps_px(t_stack *from, t_stack *to);
-void	ps_rx(t_stack *s);
-void	ps_rr(t_stack *a, t_stack *b);
-void	ps_rrx(t_stack *s);
-void	ps_rrr(t_stack *a, t_stack *b);
+void	stack_swap(t_stack *stack)
+{
+	t_stack_item	*second;
+	t_stack_item	*first;
 
-t_stack	*ps_parse(int n, char *args[]);
-
-#endif
+	second = stack->items;
+	first = second->next;
+	stack->items = first;
+	second->next = first->next;
+	first->next = second;
+	second->previous = first;
+	first->previous = NULL;
+}

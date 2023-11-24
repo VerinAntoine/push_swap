@@ -21,6 +21,6 @@ int	main(int argc, char *argv[])
 	a = ps_parse(argc - 1, argv + 1);
 	if (!a)
 		return (0);
-	ft_stk_print(a);
-	return (ft_stk_free(a), 0);
+	stack_print(a);
+	return (stack_free(a), 0);
 }

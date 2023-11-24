@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 12:32:57 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:56:10 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 10:18:03 by averin            #+#    #+#             */
+/*   Updated: 2023/11/23 13:55:20 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "libft.h"
-# include "ft_stack.h"
+#include "ft_stack.h"
 
-void	ps_sx(t_stack *s);
-void	ps_ss(t_stack *a, t_stack *b);
-void	ps_px(t_stack *from, t_stack *to);
-void	ps_rx(t_stack *s);
-void	ps_rr(t_stack *a, t_stack *b);
-void	ps_rrx(t_stack *s);
-void	ps_rrr(t_stack *a, t_stack *b);
+void	stack_free(t_stack *stack)
+{
+	t_stack_item	*item;
+	t_stack_item	*next;
 
-t_stack	*ps_parse(int n, char *args[]);
-
-#endif
+	item = stack->items;
+	while (item)
+	{
+		next = item->next;
+		free(item);
+		item = next;
+	}
+	free(stack);
+}

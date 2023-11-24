@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_is_ordered.c                                :+:      :+:    :+:   */
+/*   ps_operation_extra.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 11:36:43 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 12:54:31 by averin           ###   ########.fr       */
+/*   Created: 2023/11/24 20:57:29 by averin            #+#    #+#             */
+/*   Updated: 2023/11/24 20:59:46 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "push_swap.h"
 
-int	ft_stk_is_ordered(t_stack *stack)
+void	ps_rx(t_stack *s)
 {
-	t_stack_item	*item;
+	stack_rotate(s);
+	ft_printf("r%c\n", s->name);
+}
 
-	item = stack->items;
-	if (item == NULL)
-		return (FALSE);
-	while (item->next)
-	{
-		if (item->value > item->next->value)
-			return (FALSE);
-	}
-	return (TRUE);
+void	ps_rr(t_stack *a, t_stack *b)
+{
+	stack_rotate(a);
+	stack_rotate(b);
+	ft_printf("rr\n");
+}
+
+void	ps_rrx(t_stack *s)
+{
+	stack_rvs_rotate(s);
+	ft_printf("rr%c\n", s->name);
+}
+
+void	ps_rrr(t_stack *a, t_stack *b)
+{
+	stack_rvs_rotate(a);
+	stack_rvs_rotate(b);
+	ft_printf("rrr\n");
 }

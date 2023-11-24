@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_rvs_rotate.c                                :+:      :+:    :+:   */
+/*   stack_remove.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 11:13:32 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 12:36:22 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 12:56:34 by averin            #+#    #+#             */
+/*   Updated: 2023/11/21 13:35:26 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_stk_rvs_rotate(t_stack *stack)
+void	stack_remove(t_stack *stack, t_stack_item *item)
 {
-	t_stack_item	*first;
-	t_stack_item	*last;
-
-	first = stack->items;
-	if (!first)
-		return ;
-	last = ft_stk_last(stack);
-	stack->items = first->next;
-	first->next->previous = NULL;
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
+	if (item->previous)
+		item->previous->next = item->next;
+	if (item->next)
+		item->next->previous = item->previous;
+	if (stack->items == item)
+		stack->items = item->next;
+	free(item);
 }

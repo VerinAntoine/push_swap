@@ -8,9 +8,9 @@ LIBS		= $(LIBFT) $(MLIX)
 OBJ_DIR		= obj
 
 SRCS		= $(addprefix src/, main.c ps_parser.c)
-STACK_SRCS	= $(addprefix ft_stack/, ft_stk_add.c ft_stk_last.c ft_stk_print.c\
-				ft_stk_swap.c ft_stk_free.c ft_stk_remove.c ft_stk_rotate.c\
-				ft_stk_rvs_rotate.c ft_stk_push.c)
+STACK_SRCS	= $(addprefix ft_stack/, stack_add.c stack_last.c stack_print.c\
+				stack_swap.c stack_free.c stack_remove.c stack_rotate.c\
+				stack_rvs_rotate.c stack_push.c)
 OBJS		= ${addprefix $(OBJ_DIR)/, ${SRCS:.c=.o} ${STACK_SRCS:.c=.o}}
 
 $(NAME): $(OBJS) $(LIBS)

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_rotate.c                                    :+:      :+:    :+:   */
+/*   stack_is_ordered.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 14:32:02 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:55:24 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 11:36:43 by averin            #+#    #+#             */
+/*   Updated: 2023/11/21 12:54:31 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_stk_rotate(t_stack *stack)
+int	stack_is_ordered(t_stack *stack)
 {
-	t_stack_item	*a;
-	t_stack_item	*b;
+	t_stack_item	*item;
 
-	a = stack->items;
-	if (!a)
-		return ;
-	b = ft_stk_last(stack);
-	stack->items = b;
-	b->previous->next = NULL;
-	b->next = a;
-	a->previous = b;
-	b->previous = NULL;
+	item = stack->items;
+	if (item == NULL)
+		return (FALSE);
+	while (item->next)
+	{
+		if (item->value > item->next->value)
+			return (FALSE);
+	}
+	return (TRUE);
 }

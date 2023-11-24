@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_print.c                                     :+:      :+:    :+:   */
+/*   stack_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:41:30 by averin            #+#    #+#             */
-/*   Updated: 2023/11/21 09:44:34 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 14:32:02 by averin            #+#    #+#             */
+/*   Updated: 2023/11/23 13:55:24 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_stk_print(t_stack *stack)
+void	stack_rotate(t_stack *stack)
 {
-	t_stack_item	*item;
+	t_stack_item	*a;
+	t_stack_item	*b;
 
-	item = stack->items;
-	ft_printf("stack %c: ", stack->name);
-	while (item)
-	{
-		ft_putnbr_fd(item->value, 1);
-		ft_putstr_fd(" ", 1);
-		item = item->next;
-	}
-	ft_putstr_fd("\n", 1);
+	a = stack->items;
+	if (!a)
+		return ;
+	b = stack_last(stack);
+	stack->items = b;
+	b->previous->next = NULL;
+	b->next = a;
+	a->previous = b;
+	b->previous = NULL;
 }

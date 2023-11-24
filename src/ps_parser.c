@@ -58,8 +58,8 @@ t_stack	*ps_parse(int n, char **args)
 	{
 		number = ft_atoi(args[i]);
 		if (!is_number(args[i]) || is_in(stack, number))
-			return (ft_printf("Error\n"), ft_stk_free(stack), NULL);
-		ft_stk_add(stack, number);
+			return (ft_printf("Error\n"), stack_free(stack), NULL);
+		stack_add(stack, number);
 	}
 	return (stack);
 }

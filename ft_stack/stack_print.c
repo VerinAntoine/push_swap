@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stk_push.c                                      :+:      :+:    :+:   */
+/*   stack_print.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 11:18:22 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 12:35:23 by averin           ###   ########.fr       */
+/*   Created: 2023/11/21 09:41:30 by averin            #+#    #+#             */
+/*   Updated: 2023/11/21 09:44:34 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	ft_stk_push(t_stack *from, t_stack *to)
+void	stack_print(t_stack *stack)
 {
 	t_stack_item	*item;
 
-	item = from->items;
-	item->next->previous = NULL;
-	from->items = item->next;
-	item->next = to->items;
-	to->items = item;
+	item = stack->items;
+	ft_printf("stack %c: ", stack->name);
+	while (item)
+	{
+		ft_putnbr_fd(item->value, 1);
+		ft_putstr_fd(" ", 1);
+		item = item->next;
+	}
+	ft_putstr_fd("\n", 1);
 }
