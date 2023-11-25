@@ -23,6 +23,7 @@ int	stack_is_ordered(t_stack *stack)
 	{
 		if (item->value > item->next->value)
 			return (FALSE);
+		item = item->next;
 	}
 	return (TRUE);
 }

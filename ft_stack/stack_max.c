@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                      :+:      :+:    :+:   */
+/*   stack_max.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 11:18:22 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 12:35:23 by averin           ###   ########.fr       */
+/*   Created: 2023/11/25 12:14:29 by antoine           #+#    #+#             */
+/*   Updated: 2023/11/25 12:16:43 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "push_swap.h"
 
-void	stack_push(t_stack *from, t_stack *to)
+int	stack_max(t_stack *s)
 {
 	t_stack_item	*item;
+	int				max;
 
-	item = from->items;
-	if (item->next)
-		item->next->previous = NULL;
-	from->items = item->next;
-	item->next = to->items;
-	to->items = item;
+	item = s->items;
+	if (!item)
+		return (0);
+	max = item->value;
+	while (item)
+	{
+		if (max < item->value)
+			max = item->value;
+		item = item->next;
+	}
+	return (max);
 }

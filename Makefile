@@ -4,17 +4,19 @@ CCFLAGS		= -Wall -Wextra -Werror -g3
 INCLUDES	= includes/
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
-LIBS		= $(LIBFT) $(MLIX)
+LIBS		= $(LIBFT)
 OBJ_DIR		= obj
 
-SRCS		= $(addprefix src/, main.c ps_parser.c ps_operation.c ps_operation_extra.c)
+SRCS		= $(addprefix src/, main.c ps_parser.c ps_operation.c ps_operation_extra.c\
+				ps_sort.c)
 STACK_SRCS	= $(addprefix ft_stack/, stack_add.c stack_last.c stack_print.c\
-				stack_swap.c stack_free.c stack_rotate.c stack_rvs_rotate.c stack_push.c)
+				stack_swap.c stack_free.c stack_rotate.c stack_rvs_rotate.c stack_push.c\
+				stack_is_ordered.c stack_max.c)
 OBJS		= ${addprefix $(OBJ_DIR)/, ${SRCS:.c=.o} ${STACK_SRCS:.c=.o}}
 
 $(NAME): $(OBJS) $(LIBS)
 	@echo '* Assembling $@'
-	@$(CC) $(CCFLAGS) $(OBJS) libft/libft.a -o $(NAME)
+	@$(CC) $(CCFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p obj

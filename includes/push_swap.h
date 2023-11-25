@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:32:57 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:56:10 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/25 00:16:05 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	ps_rrx(t_stack *s);
 void	ps_rrr(t_stack *a, t_stack *b);
 
 t_stack	*ps_parse(int n, char *args[]);
+void	ps_sort(t_stack *a, t_stack *b);
 
 #endif

@@ -14,16 +14,20 @@
 
 void	stack_rotate(t_stack *stack)
 {
-	t_stack_item	*a;
-	t_stack_item	*b;
+	t_stack_item	*first;
+	t_stack_item	*last;
 
-	a = stack->items;
-	if (!a)
+	first = stack->items;
+	if (!first)
 		return ;
-	b = stack_last(stack);
-	stack->items = b;
-	b->previous->next = NULL;
-	b->next = a;
-	a->previous = b;
-	b->previous = NULL;
+	last = stack_last(stack);
+	if (first == last)
+		return ;
+	stack->items = last;
+	if (last->previous)
+		last->previous->next = NULL;
+	first->next = last->next;
+	last->next = first;
+	first->previous = last;
+	last->previous = NULL;
 }
