@@ -23,10 +23,11 @@ void	stack_rvs_rotate(t_stack *stack)
 	last = stack_last(stack);
 	if (first == last)
 		return ;
-	stack->items = first->next;
-	if (first->next)
-		first->next->previous = NULL;
+	stack->items = last;
+	if (last->previous)
+		last->previous->next = NULL;
+	first->next = last->next;
 	last->next = first;
 	first->previous = last;
-	first->next = NULL;
+	last->previous = NULL;
 }

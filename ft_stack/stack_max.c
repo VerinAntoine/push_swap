@@ -12,20 +12,22 @@
 
 #include "push_swap.h"
 
-int	stack_max(t_stack *s)
+void	stack_max(t_stack *s, int *min, int *max)
 {
 	t_stack_item	*item;
-	int				max;
 
 	item = s->items;
 	if (!item)
-		return (0);
-	max = item->value;
+		return ;
+	*max = item->value;
+	*min = item->value;
 	while (item)
 	{
-		if (max < item->value)
-			max = item->value;
+		if (*max < item->value)
+			*max = item->value;
+		if (*min > item->value)
+			*min = item->value;
 		item = item->next;
 	}
-	return (max);
+	return ;
 }

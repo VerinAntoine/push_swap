@@ -18,7 +18,7 @@ static int	is_number(char *s)
 		return (FALSE);
 	while (*s)
 	{
-		if (!ft_isdigit(*s))
+		if (!ft_isdigit(*s) && *s != '-')
 			return (FALSE);
 		s++;
 	}
@@ -44,10 +44,10 @@ static int	is_in(t_stack *stack, int i)
 /**
  * @warning NULLABLE
 */
-t_stack	*ps_parse(int n, char **args)
+t_stack	*ps_parse(size_t n, char **args)
 {
 	t_stack	*stack;
-	int		i;
+	size_t	i;
 	int		number;
 
 	stack = ft_calloc(1, sizeof(t_stack));

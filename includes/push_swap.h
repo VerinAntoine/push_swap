@@ -23,7 +23,7 @@ void	ps_rr(t_stack *a, t_stack *b);
 void	ps_rrx(t_stack *s);
 void	ps_rrr(t_stack *a, t_stack *b);
 
-t_stack	*ps_parse(int n, char *args[]);
+t_stack	*ps_parse(size_t n, char *args[]);
 void	ps_sort(t_stack *a, t_stack *b);
 
 #endif
