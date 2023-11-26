@@ -58,7 +58,7 @@ int	main(int argc, char *argv[])
 	a->name = 'a';
 	b->name = 'b';
 	ps_sort(a, b);
-	stack_print(a);
-	stack_print(b);
+	// stack_print(a);
+	// stack_print(b);
 	return (stack_free(a), stack_free(b), 0);
 }

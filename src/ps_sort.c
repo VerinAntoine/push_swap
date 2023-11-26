@@ -12,10 +12,33 @@
 
 #include "push_swap.h"
 
+static int	direction(t_stack *s, int n)
+{
+	t_stack_item	*item;
+	int				max;
+	int				min;
+	int				last;
+	size_t			i;
+
+	// stack_index?
+	if (!s->items)
+		return (-1);
+	item = s->items;
+	last = item->value;
+	stack_max(s, &min, &max);
+	i = 0;
+	while (item)
+	{
+
+		item = item->next;
+		i++;
+	}
+}
+
 static void	align(t_stack *s, int n)
 {
 	int	max;
-	int min;
+	int	min;
 	int	last;
 
 	if (!s->items)
@@ -24,7 +47,6 @@ static void	align(t_stack *s, int n)
 	stack_max(s, &min, &max);
 	while (s->items)
 	{
-		// ft_printf("doing align for %d\n", n);
 		if (n < min && s->items->value == min)
 			break ;
 		if (n > max && s->items->value == max)
@@ -32,11 +54,10 @@ static void	align(t_stack *s, int n)
 			ps_rx(s);
 			break ;
 		}
-		if (s->items->value > n && last < n) // On a trouve
+		if (s->items->value > n && last < n)
 			break ;
 		last = s->items->value;
 		ps_rx(s);
-		// stack_print(s);
 	}
 }
 
@@ -55,12 +76,10 @@ static void	push_all(t_stack *from, t_stack *to)
 void	ps_sort(t_stack *a, t_stack *b)
 {
 	push_all(a, b);
-	while (b->items)	
+	while (b->items)
 	{
 		align(a, b->items->value);
 		ps_px(b, a);
-		// stack_print(a);
-		// stack_print(b);
 	}
 	while (!stack_is_ordered(a))
 		ps_rx(a);
