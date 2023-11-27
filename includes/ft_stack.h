@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:10:19 by averin            #+#    #+#             */
-/*   Updated: 2023/11/25 12:17:05 by antoine          ###   ########.fr       */
+/*   Updated: 2023/11/27 08:08:07 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ void			stack_max(t_stack *s, int *min, int *max);
 void			stack_free(t_stack *stack);
 void			stack_print(t_stack *stack);
 t_stack_item	*stack_last(t_stack *stack);
+size_t			stack_index(t_stack *s, int n);
+size_t			stack_size(t_stack *s);
 
 #endif

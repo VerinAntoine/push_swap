@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:43:44 by averin            #+#    #+#             */
-/*   Updated: 2023/11/25 00:21:26 by antoine          ###   ########.fr       */
+/*   Updated: 2023/11/27 13:56:59 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@
 // 	stack_add(a, 4);
 // 	stack_add(a, 6);
 // 	stack_add(a, 8);
-// 	stack_add(b, 5);
 
 // 	stack_print(a);
-// 	align(a, 5);
+// 	ps_rrx(a);
 // 	stack_print(a);
 
 // 	return 0;

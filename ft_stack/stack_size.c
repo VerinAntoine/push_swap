@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_max.c                                        :+:      :+:    :+:   */
+/*   stack_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 12:14:29 by antoine           #+#    #+#             */
-/*   Updated: 2023/11/27 07:38:12 by averin           ###   ########.fr       */
+/*   Created: 2023/11/27 07:46:53 by averin            #+#    #+#             */
+/*   Updated: 2023/11/27 07:48:25 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
 
-void	stack_max(t_stack *s, int *min, int *max)
+size_t	stack_size(t_stack *s)
 {
 	t_stack_item	*item;
+	size_t			i;
 
 	item = s->items;
-	if (!item)
-		return ;
-	*max = item->value;
-	*min = item->value;
+	i = 0;
 	while (item)
 	{
-		if (*max < item->value)
-			*max = item->value;
-		if (*min > item->value)
-			*min = item->value;
 		item = item->next;
+		i++;
 	}
-	return ;
+	return (i);
 }
