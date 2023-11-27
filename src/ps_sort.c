@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:48:37 by antoine           #+#    #+#             */
-/*   Updated: 2023/11/27 13:57:19 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/27 14:15:58 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	direction(t_stack *s, int n)
 	else
 		index = stack_index(s, n);
 	if (index >= size / 2)
-		return (1);
-	else
 		return (2);
+	else
+		return (1);
 }
 
 static void	ralign(t_stack *s, int n)
