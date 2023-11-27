@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:10:19 by averin            #+#    #+#             */
-/*   Updated: 2023/11/27 08:08:07 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/27 14:47:27 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 typedef struct s_stack_item {
 	int					value;
+	int					index;
 	struct s_stack_item	*next;
 	struct s_stack_item	*previous;
 }	t_stack_item;
