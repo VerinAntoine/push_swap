@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:43:44 by averin            #+#    #+#             */
-/*   Updated: 2023/11/27 13:56:59 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/28 15:32:25 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 // int main()
 // {
-// 	t_stack *a = ft_calloc(1, sizeof(t_stack));
-// 	t_stack *b = ft_calloc(1, sizeof(t_stack));
-// 	a->name = 'a';
-// 	b->name = 'b';
+// 	t_stack	*a;
 
+// 	a = ft_calloc(1, sizeof(t_stack));
+// 	stack_add(a, 3);
 // 	stack_add(a, 2);
-// 	stack_add(a, 4);
-// 	stack_add(a, 6);
-// 	stack_add(a, 8);
-
+// 	stack_add(a, 1);
 // 	stack_print(a);
-// 	ps_rrx(a);
+// 	sort_three(a);
 // 	stack_print(a);
-
 // 	return 0;
 // }
 
@@ -57,7 +52,7 @@ int	main(int argc, char *argv[])
 	a->name = 'a';
 	b->name = 'b';
 	ps_sort(a, b);
-	// stack_print(a);
-	// stack_print(b);
+	stack_print(a);
+	stack_print(b);
 	return (stack_free(a), stack_free(b), 0);
 }

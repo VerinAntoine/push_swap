@@ -15,17 +15,20 @@
 int	stack_add(t_stack *stack, int value)
 {
 	t_stack_item	*item;
+	t_stack_item	*last;
 
 	item = ft_calloc(1, sizeof(t_stack_item));
 	if (!item)
 		return (FALSE);
 	item->value = value;
+	item->index = 0;
 	if (!stack->items)
 		stack->items = item;
 	else
 	{
-		item->previous = stack_last(stack);
-		stack_last(stack)->next = item;
+		last = stack_last(stack);
+		item->previous = last;
+		last->next = item;
 	}
 	return (TRUE);
 }
