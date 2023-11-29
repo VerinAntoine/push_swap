@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:48:37 by antoine           #+#    #+#             */
-/*   Updated: 2023/11/28 15:41:32 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/29 09:41:56 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,18 @@ static int	direction(t_stack *s, int n)
 
 	if (!s->items)
 		return (-1);
-		
-	// stack_max(s, &min, &max);
-	// size = stack_size(s);
-	// if (n < min)
-	// 	index = stack_index(s, min);
-	// else if (n > max)
-	// 	index = stack_index(s, max);
-	// else
-	// 	index = stack_index(s, n);
-	// if (index >= size / 2)
-	// 	return (2);
-	// else
-	// 	return (1);
+	stack_max(s, &min, &max);
+	size = stack_size(s);
+	if (n < min)
+		index = stack_index(s, min);
+	else if (n > max)
+		index = stack_index(s, max);
+	else
+		index = stack_index(s, n);
+	if (index > size / 2)
+		return (2);
+	else
+		return (1);
 }
 
 static void	ralign(t_stack *s, int n)
@@ -69,7 +68,7 @@ static void	align(t_stack *s, int n)
 
 	if (!s->items)
 		return ;
-	last = s->items->value;
+	last = stack_last(s)->value;
 	stack_max(s, &min, &max);
 	while (s->items)
 	{
@@ -100,7 +99,6 @@ void	ps_sort(t_stack *a, t_stack *b)
 		else
 			ralign(a, b->items->value);
 		ps_px(b, a);
-		// stack_print(a);
 	}
 	while (!stack_is_ordered(a))
 		ps_rx(a);
