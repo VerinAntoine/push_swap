@@ -14,14 +14,16 @@
 
 void	stack_swap(t_stack *stack)
 {
-	t_stack_item	*second;
 	t_stack_item	*first;
+	t_stack_item	*second;
 
-	second = stack->items;
-	first = second->next;
-	stack->items = first;
-	second->next = first->next;
-	first->next = second;
-	second->previous = first;
-	first->previous = NULL;
+	first = stack->items;
+	second = first->next;
+	if (second->next)
+		second->next->previous = first;
+	stack->items = second;
+	first->next = second->next;
+	second->next = first;
+	first->previous = second;
+	second->previous = NULL;
 }

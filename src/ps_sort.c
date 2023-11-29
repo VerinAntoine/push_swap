@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:48:37 by antoine           #+#    #+#             */
-/*   Updated: 2023/11/29 09:41:56 by averin           ###   ########.fr       */
+/*   Updated: 2023/11/29 15:07:58 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	direction(t_stack *s, int n)
 		index = stack_index(s, max);
 	else
 		index = stack_index(s, n);
+	// ft_printf("%d should go at %d (size=%d)\n", n, index, size);
 	if (index > size / 2)
 		return (2);
 	else
@@ -68,10 +69,10 @@ static void	align(t_stack *s, int n)
 
 	if (!s->items)
 		return ;
-	last = stack_last(s)->value;
 	stack_max(s, &min, &max);
 	while (s->items)
 	{
+		last = stack_last(s)->value;
 		if (n < min && s->items->value == min)
 			break ;
 		if (n > max && s->items->value == max)
@@ -81,7 +82,6 @@ static void	align(t_stack *s, int n)
 		}
 		if (s->items->value > n && last < n)
 			break ;
-		last = s->items->value;
 		ps_rx(s);
 	}
 }
@@ -89,10 +89,12 @@ static void	align(t_stack *s, int n)
 void	ps_sort(t_stack *a, t_stack *b)
 {
 	int	op;
+	// char c;
 
 	ps_presort(a, b);
 	while (b->items)
 	{
+		// read(0, &c, 1);
 		op = direction(a, b->items->value);
 		if (op == 1)
 			align(a, b->items->value);
