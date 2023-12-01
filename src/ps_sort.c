@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:48:37 by antoine           #+#    #+#             */
-/*   Updated: 2023/12/01 09:04:58 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 09:53:51 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,11 @@ static size_t	direction(t_stack *s, int n)
 {
 	size_t	size;
 	size_t	index;
-	int		max;
-	int		min;
 
 	if (!s->items)
 		return (-1);
-	stack_max(s, &min, &max);
 	size = stack_size(s);
-	if (n < min)
-		index = stack_index(s, min);
-	else if (n > max)
-		index = stack_index(s, max);
-	else
-		index = stack_index(s, n);
-	// ft_printf("%d should go at %d (size=%d)\n", n, index, size);
+	index = stack_index(s, n);
 	if (index > size / 2)
 		return (2);
 	else
