@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:43:44 by averin            #+#    #+#             */
-/*   Updated: 2023/12/01 09:05:49 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 14:32:27 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,22 @@
 // int main()
 // {
 // 	t_stack	*a;
+// 	t_stack	*b;
 
 // 	a = ft_calloc(1, sizeof(t_stack));
-// 	stack_add(a, 3);
-// 	stack_add(a, 2);
-// 	stack_add(a, 1);
+// 	b = ft_calloc(1, sizeof(t_stack));
+// 	stack_add(a, 13);
+// 	stack_add(a, 15);
+// 	stack_add(a, 17);
+// 	stack_add(a, 22);
+// 	stack_add(a, 23);
+// 	stack_add(a, 24);
+// 	stack_add(b, 18);
+// 	stack_add(b, 14);
+// 	stack_add(b, 20);
+// 	ps_sort(a, b);
 // 	stack_print(a);
-// 	sort_three(a);
-// 	stack_print(a);
+// 	stack_print(b);
 // 	return 0;
 // }
 
@@ -43,7 +51,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		a = ps_parse(argc - 1, argv + 1);
-	
 	if (!a) //TODO Rewrite
 		return (0);
 	b = ft_calloc(1, sizeof(t_stack));
@@ -52,7 +59,7 @@ int	main(int argc, char *argv[])
 	a->name = 'a';
 	b->name = 'b';
 	dispatch_sort(a, b);
-	stack_print(a);
-	stack_print(b);
+	// stack_print(a);
+	// stack_print(b);
 	return (stack_free(a), stack_free(b), 0);
 }

@@ -6,19 +6,23 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:10:19 by averin            #+#    #+#             */
-/*   Updated: 2023/11/28 09:29:53 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 09:32:12 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STACK_H
 # define FT_STACK_H
 # include "libft.h"
+# define OP_R 1
+# define OP_RR 2
 
 typedef struct s_stack_item {
 	int					value;
 	struct s_stack_item	*next;
 	struct s_stack_item	*previous;
 	size_t				index;
+	size_t				cost;
+	int					operator;
 }	t_stack_item;
 
 typedef struct s_stack {

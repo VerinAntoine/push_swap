@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:32:57 by averin            #+#    #+#             */
-/*   Updated: 2023/12/01 09:03:57 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 10:17:16 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ps_rrx(t_stack *s);
 void	ps_rrr(t_stack *a, t_stack *b);
 
 t_stack	*ps_parse(size_t n, char *args[]);
+size_t	direction(t_stack *s, int n);
+void	ps_cost(t_stack	*a, t_stack *b);
 void	dispatch_sort(t_stack *a, t_stack *b);
 void	ps_presort(t_stack *a, t_stack *b);
 void	ps_sort(t_stack *a, t_stack *b);
