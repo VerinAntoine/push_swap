@@ -6,13 +6,13 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:48:37 by antoine           #+#    #+#             */
-/*   Updated: 2023/11/29 15:07:58 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 09:04:58 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	direction(t_stack *s, int n)
+static size_t	direction(t_stack *s, int n)
 {
 	size_t	size;
 	size_t	index;
@@ -88,8 +88,7 @@ static void	align(t_stack *s, int n)
 
 void	ps_sort(t_stack *a, t_stack *b)
 {
-	int	op;
-	// char c;
+	size_t	op;
 
 	ps_presort(a, b);
 	while (b->items)
@@ -102,6 +101,25 @@ void	ps_sort(t_stack *a, t_stack *b)
 			ralign(a, b->items->value);
 		ps_px(b, a);
 	}
+	op = a->items->index / stack_size(a);
 	while (!stack_is_ordered(a))
-		ps_rx(a);
+	{
+		if (op == 1)
+			ps_rx(a);
+		else
+			ps_rrx(a);
+	}
+}
+
+void	dispatch_sort(t_stack *a, t_stack *b)
+{
+	size_t	size;
+
+	size = stack_size(a);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else
+		ps_sort(a, b);
 }

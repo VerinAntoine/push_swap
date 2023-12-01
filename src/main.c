@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:43:44 by averin            #+#    #+#             */
-/*   Updated: 2023/11/29 13:06:10 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 09:05:49 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	main(int argc, char *argv[])
 		return (ft_printf("Error\n"), stack_free(a), 0);
 	a->name = 'a';
 	b->name = 'b';
-	ps_sort(a, b);
-	// stack_print(a);
-	// stack_print(b);
+	dispatch_sort(a, b);
+	stack_print(a);
+	stack_print(b);
 	return (stack_free(a), stack_free(b), 0);
 }

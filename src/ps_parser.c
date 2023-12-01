@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:32:36 by averin            #+#    #+#             */
-/*   Updated: 2023/11/23 13:53:51 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 09:04:33 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static int	is_number(char *s)
 {
 	if (ft_strlen(s) == 0)
 		return (FALSE);
+	if (*s == '-')
+		s++;
 	while (*s)
 	{
-		if (!ft_isdigit(*s) && *s != '-')
+		if (!ft_isdigit(*s))
 			return (FALSE);
 		s++;
 	}
