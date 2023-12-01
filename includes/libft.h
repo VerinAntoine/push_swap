@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 09:55:16 by averin            #+#    #+#             */
-/*   Updated: 2023/12/01 09:52:27 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 16:47:25 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 }					t_list;
 
 int		ft_printf(const char *s, ...);
+int		ft_dprintf(int fd, const char *s, ...);
 char	*get_next_line(int fd);
 
 int		ft_max(int a, int b);

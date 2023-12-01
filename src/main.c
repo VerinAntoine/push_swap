@@ -6,7 +6,7 @@
 /*   By: averin <averin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:43:44 by averin            #+#    #+#             */
-/*   Updated: 2023/12/01 14:32:27 by averin           ###   ########.fr       */
+/*   Updated: 2023/12/01 16:54:21 by averin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int	main(int argc, char *argv[])
 		return (0);
 	b = ft_calloc(1, sizeof(t_stack));
 	if (!b)
-		return (ft_printf("Error\n"), stack_free(a), 0);
+		return (ft_dprintf(2, "Error\n"), stack_free(a), 0);
 	a->name = 'a';
 	b->name = 'b';
+	if (stack_is_ordered(a))
+		return (stack_free(a), stack_free(b), 0);
 	dispatch_sort(a, b);
-	// stack_print(a);
-	// stack_print(b);
 	return (stack_free(a), stack_free(b), 0);
 }
