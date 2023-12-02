@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_two(t_stack *s)
+void	ps_sort_two(t_stack *s)
 {
 	int	one;
 	int	two;
@@ -23,7 +23,7 @@ void	sort_two(t_stack *s)
 		ps_sx(s);
 }
 
-void	sort_three(t_stack	*s)
+void	ps_sort_three(t_stack	*s)
 {
 	int	one;
 	int	two;
@@ -35,15 +35,15 @@ void	sort_three(t_stack	*s)
 	if (one > two && one > three)
 	{
 		ps_rx(s);
-		sort_two(s);
+		ps_sort_two(s);
 	}
 	else if (two > one && two > three)
 	{
 		ps_rrx(s);
-		sort_two(s);
+		ps_sort_two(s);
 	}
 	else if (three > one && three > two)
-		sort_two(s);
+		ps_sort_two(s);
 }
 
 void	assign_index(t_stack *a)
@@ -92,5 +92,5 @@ void	ps_presort(t_stack *a, t_stack *b)
 	}
 	while (++i <= size - 3)
 		ps_px(a, b);
-	sort_three(a);
+	ps_sort_three(a);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-size_t	direction(t_stack *s, int n)
+size_t	ps_direction(t_stack *s, int n)
 {
 	size_t	size;
 	size_t	index;
@@ -52,11 +52,11 @@ static void	ps_sort_while(t_stack *a, t_stack *b)
 
 	stack_max(a, &min, &max);
 	ps_cost(a, b);
-	item = select_costless(b);
+	item = ps_select_costless(b);
 	if (item->operator == OP_R)
-		align(a, b, item->value, exact_index(b, item->value));
+		ps_align(a, b, item->value, exact_index(b, item->value));
 	else
-		ralign(a, b, item->value, exact_index(b, item->value));
+		ps_ralign(a, b, item->value, exact_index(b, item->value));
 	if (item->value > max)
 		ps_rx(a);
 	ps_px(b, a);
@@ -72,7 +72,7 @@ void	ps_sort(t_stack *a, t_stack *b)
 	while (b->items)
 		ps_sort_while(a, b);
 	stack_max(a, &min, &max);
-	op = direction(a, min);
+	op = ps_direction(a, min);
 	while (!stack_is_ordered(a))
 	{
 		if (op == 1)
@@ -82,15 +82,15 @@ void	ps_sort(t_stack *a, t_stack *b)
 	}
 }
 
-void	dispatch_sort(t_stack *a, t_stack *b)
+void	ps_dispatch_sort(t_stack *a, t_stack *b)
 {
 	size_t	size;
 
 	size = stack_size(a);
 	if (size == 2)
-		sort_two(a);
+		ps_sort_two(a);
 	else if (size == 3)
-		sort_three(a);
+		ps_sort_three(a);
 	else
 		ps_sort(a, b);
 }

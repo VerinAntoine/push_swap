@@ -24,15 +24,15 @@ void			ps_rrx(t_stack *s);
 void			ps_rrr(t_stack *a, t_stack *b);
 
 t_stack			*ps_parse(size_t n, char *args[]);
-size_t			direction(t_stack *s, int n);
-void			align(t_stack *a, t_stack *b, int value, size_t index);
-void			ralign(t_stack *a, t_stack *b, int value, size_t index);
+size_t			ps_direction(t_stack *s, int n);
+void			ps_align(t_stack *a, t_stack *b, int value, size_t index);
+void			ps_ralign(t_stack *a, t_stack *b, int value, size_t index);
 void			ps_cost(t_stack	*a, t_stack *b);
-t_stack_item	*select_costless(t_stack *b);
-void			dispatch_sort(t_stack *a, t_stack *b);
+t_stack_item	*ps_select_costless(t_stack *b);
+void			ps_dispatch_sort(t_stack *a, t_stack *b);
 void			ps_presort(t_stack *a, t_stack *b);
 void			ps_sort(t_stack *a, t_stack *b);
-void			sort_two(t_stack *s);
-void			sort_three(t_stack	*s);
+void			ps_sort_two(t_stack *s);
+void			ps_sort_three(t_stack	*s);
 
 #endif

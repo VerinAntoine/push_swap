@@ -37,6 +37,6 @@ int	main(int argc, char *argv[])
 	b->name = 'b';
 	if (stack_is_ordered(a))
 		return (stack_free(a), stack_free(b), 0);
-	dispatch_sort(a, b);
+	ps_dispatch_sort(a, b);
 	return (stack_free(a), stack_free(b), 0);
 }

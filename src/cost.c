@@ -19,7 +19,7 @@ static size_t	ps_cost_r(t_stack *a, int value, size_t index)
 	size_t	cost;
 	int		op;
 
-	op = direction(a, value);
+	op = ps_direction(a, value);
 	dest = stack_index(a, value);
 	cost = 0;
 	size_a = stack_size(a);
@@ -47,7 +47,7 @@ static size_t	ps_cost_rr(t_stack *a, int value, size_t index, size_t sizes[2])
 	size_t	cost;
 	int		op;
 
-	op = direction(a, value);
+	op = ps_direction(a, value);
 	dest = stack_index(a, value);
 	cost = 0;
 	while (index || dest)
@@ -96,7 +96,7 @@ void	ps_cost(t_stack	*a, t_stack *b)
 	}
 }
 
-t_stack_item	*select_costless(t_stack *b)
+t_stack_item	*ps_select_costless(t_stack *b)
 {
 	t_stack_item	*item;
 	t_stack_item	*result;
