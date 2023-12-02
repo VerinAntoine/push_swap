@@ -44,43 +44,33 @@ static size_t	exact_index(t_stack *s, int value)
 	return (0);
 }
 
-t_stack_item	*select_costless(t_stack *b)
+static void	ps_sort_while(t_stack *a, t_stack *b)
 {
-	t_stack_item	*item;
-	t_stack_item	*result;
-
-	item = b->items;
-	result = item;
-	while (item)
-	{
-		if (result->cost > item->cost)
-			result = item;
-		item = item->next;
-	}
-	return (result);
-}
-
-void	ps_sort(t_stack *a, t_stack *b)
-{
-	size_t			op;
 	t_stack_item	*item;
 	int				min;
 	int				max;
 
+	stack_max(a, &min, &max);
+	ps_cost(a, b);
+	item = select_costless(b);
+	if (item->operator == OP_R)
+		align(a, b, item->value, exact_index(b, item->value));
+	else
+		ralign(a, b, item->value, exact_index(b, item->value));
+	if (item->value > max)
+		ps_rx(a);
+	ps_px(b, a);
+}
+
+void	ps_sort(t_stack *a, t_stack *b)
+{
+	size_t	op;
+	int		min;
+	int		max;
+
 	ps_presort(a, b);
 	while (b->items)
-	{
-		stack_max(a, &min, &max);
-		ps_cost(a, b);
-		item = select_costless(b);
-		if (item->operator == OP_R)
-			align(a, b, item->value, exact_index(b, item->value));
-		else
-			ralign(a, b, item->value, exact_index(b, item->value));
-		if (item->value > max)
-			ps_rx(a);
-		ps_px(b, a);
-	}
+		ps_sort_while(a, b);
 	stack_max(a, &min, &max);
 	op = direction(a, min);
 	while (!stack_is_ordered(a))

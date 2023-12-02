@@ -95,3 +95,19 @@ void	ps_cost(t_stack	*a, t_stack *b)
 		i++;
 	}
 }
+
+t_stack_item	*select_costless(t_stack *b)
+{
+	t_stack_item	*item;
+	t_stack_item	*result;
+
+	item = b->items;
+	result = item;
+	while (item)
+	{
+		if (result->cost > item->cost)
+			result = item;
+		item = item->next;
+	}
+	return (result);
+}
