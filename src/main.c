@@ -22,21 +22,21 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (argc == 2)
 	{
+		if (ft_strlen(argv[1]) == 0)
+			return (ft_dprintf(2, "Error\n"), 0);
 		argv = ft_size_split(argv[1], ' ', &size);
-		a = ps_parse(size, argv);
+		a = ps_parse(size, argv, 'a');
 		ft_free_split(argv);
 	}
 	else
-		a = ps_parse(argc - 1, argv + 1);
+		a = ps_parse(argc - 1, argv + 1, 'a');
 	if (!a)
 		return (0);
 	b = ft_calloc(1, sizeof(t_stack));
 	if (!b)
 		return (ft_dprintf(2, "Error\n"), stack_free(a), 0);
-	a->name = 'a';
 	b->name = 'b';
-	if (stack_is_ordered(a))
-		return (stack_free(a), stack_free(b), 0);
-	ps_dispatch_sort(a, b);
+	if (!stack_is_ordered(a))
+		ps_dispatch_sort(a, b);
 	return (stack_free(a), stack_free(b), 0);
 }

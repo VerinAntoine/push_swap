@@ -43,10 +43,7 @@ static int	is_in(t_stack *stack, int i)
 	return (FALSE);
 }
 
-/**
- * @warning NULLABLE
-*/
-t_stack	*ps_parse(size_t n, char **args)
+t_stack	*ps_parse(size_t n, char **args, char c)
 {
 	t_stack	*stack;
 	size_t	i;
@@ -55,6 +52,7 @@ t_stack	*ps_parse(size_t n, char **args)
 	stack = ft_calloc(1, sizeof(t_stack));
 	if (!stack)
 		return (ft_dprintf(2, "Error\n"), NULL);
+	stack->name = c;
 	i = -1;
 	while (++i < n)
 	{

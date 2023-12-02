@@ -23,7 +23,7 @@ void			ps_rr(t_stack *a, t_stack *b);
 void			ps_rrx(t_stack *s);
 void			ps_rrr(t_stack *a, t_stack *b);
 
-t_stack			*ps_parse(size_t n, char *args[]);
+t_stack			*ps_parse(size_t n, char *args[], char c);
 size_t			ps_direction(t_stack *s, int n);
 void			ps_align(t_stack *a, t_stack *b, int value, size_t index);
 void			ps_ralign(t_stack *a, t_stack *b, int value, size_t index);
