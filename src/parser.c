@@ -14,10 +14,10 @@
 
 static int	is_number(char *s)
 {
-	if (ft_strlen(s) == 0)
-		return (FALSE);
 	if (*s == '-')
 		s++;
+	if (ft_strlen(s) == 0)
+		return (FALSE);
 	while (*s)
 	{
 		if (!ft_isdigit(*s))
