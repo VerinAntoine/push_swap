@@ -25,6 +25,8 @@ void	ps_rrr(t_stack *a, t_stack *b);
 
 t_stack	*ps_parse(size_t n, char *args[]);
 size_t	direction(t_stack *s, int n);
+void	align(t_stack *a, t_stack *b, int value, size_t index);
+void	ralign(t_stack *a, t_stack *b, int value, size_t index);
 void	ps_cost(t_stack	*a, t_stack *b);
 void	dispatch_sort(t_stack *a, t_stack *b);
 void	ps_presort(t_stack *a, t_stack *b);

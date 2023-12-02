@@ -12,29 +12,6 @@
 
 #include "push_swap.h"
 
-// int main()
-// {
-// 	t_stack	*a;
-// 	t_stack	*b;
-
-// 	a = ft_calloc(1, sizeof(t_stack));
-// 	b = ft_calloc(1, sizeof(t_stack));
-// 	stack_add(a, 13);
-// 	stack_add(a, 15);
-// 	stack_add(a, 17);
-// 	stack_add(a, 22);
-// 	stack_add(a, 23);
-// 	stack_add(a, 24);
-// 	stack_add(b, 18);
-// 	stack_add(b, 14);
-// 	stack_add(b, 20);
-// 	ps_sort(a, b);
-// 	stack_print(a);
-// 	stack_print(b);
-// 	return 0;
-// }
-
-
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
@@ -51,7 +28,7 @@ int	main(int argc, char *argv[])
 	}
 	else
 		a = ps_parse(argc - 1, argv + 1);
-	if (!a) //TODO Rewrite
+	if (!a)
 		return (0);
 	b = ft_calloc(1, sizeof(t_stack));
 	if (!b)

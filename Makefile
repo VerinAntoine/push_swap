@@ -8,7 +8,7 @@ LIBS		= $(LIBFT)
 OBJ_DIR		= obj
 
 SRCS		= $(addprefix src/, main.c ps_parser.c ps_operation.c ps_operation_extra.c\
-				ps_sort.c ps_presort.c cost.c)
+				ps_sort.c ps_presort.c cost.c align.c)
 STACK_SRCS	= $(addprefix ft_stack/, stack_add.c stack_last.c stack_print.c\
 				stack_swap.c stack_free.c stack_rotate.c stack_rvs_rotate.c stack_push.c\
 				stack_is_ordered.c stack_max.c stack_size.c stack_index.c)

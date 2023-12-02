@@ -27,31 +27,6 @@ size_t	direction(t_stack *s, int n)
 		return (OP_R);
 }
 
-// static void	ralign(t_stack *s, int n)
-// {
-// 	int	max;
-// 	int	min;
-// 	int	last;
-
-// 	if (!s->items)
-// 		return ;
-// 	stack_max(s, &min, &max);
-// 	while (s->items)
-// 	{
-// 		last = stack_last(s)->value;
-// 		if (n < min && s->items->value == min)
-// 			break ;
-// 		if (n > max && s->items->value == max)
-// 		{
-// 			ps_rx(s);
-// 			break ;
-// 		}
-// 		if (s->items->value > n && last < n)
-// 			break ;
-// 		ps_rrx(s);
-// 	}
-// }
-
 static size_t	exact_index(t_stack *s, int value)
 {
 	t_stack_item	*item;
@@ -68,91 +43,6 @@ static size_t	exact_index(t_stack *s, int value)
 	}
 	return (0);
 }
-
-static void	ralign(t_stack *a, t_stack *b, int value, size_t index)
-{
-	size_t	dest;
-	int		dir;
-
-	dest = stack_index(a, value);
-	dir = direction(a, value);
-	while (index || dest)
-	{
-		if (index && dest && dir == OP_RR && index++ && dest++)
-			ps_rrr(a, b);
-		else
-		{
-			if (index && index++)
-				ps_rrx(b);
-			if (dest)
-			{
-				if (dir == OP_R && dest--)
-					ps_rx(a);
-				else if (dir == OP_RR && dest++)
-					ps_rrx(a);
-				
-			}
-		}
-		if (index == stack_size(b))
-			index = 0;
-		if (dest == stack_size(a))
-			dest = 0;
-		
-	}
-}
-
-static void	align(t_stack *a, t_stack *b, int value, size_t index)
-{
-	size_t	dest;
-	int		dir;
-
-	dest = stack_index(a, value);
-	dir = direction(a, value);
-	while (index || dest)
-	{
-		if (index && dest && dir == OP_R && index-- && dest--)
-		{
-			ps_rr(a, b);
-			continue ;
-		}
-		if (index && index--)
-			ps_rx(b);
-		if (dest)
-		{
-			if (dir == OP_R && dest--)
-				ps_rx(a);
-			else if (dir == OP_RR && dest++)
-				ps_rrx(a);
-		}
-		if (dest == stack_size(a))
-			dest = 0;
-	}
-}
-
-// static void	align(t_stack *s, int n)
-// {
-// 	int	max;
-// 	int	min;
-// 	int	last;
-
-// 	if (!s->items)
-// 		return ;
-// 	stack_max(s, &min, &max);
-// 	while (s->items)
-// 	{
-// 		last = stack_last(s)->value;
-// 		if (n < min && s->items->value == min)
-// 			break ;
-// 		if (n > max && s->items->value == max)
-// 		{
-// 			ps_rx(s);
-// 			break ;
-// 		}
-// 		if (s->items->value > n && last < n)
-// 			break ;
-// 		ps_rx(s);
-// 	}
-// }
 
 t_stack_item	*select_costless(t_stack *b)
 {
@@ -180,9 +70,7 @@ void	ps_sort(t_stack *a, t_stack *b)
 	ps_presort(a, b);
 	while (b->items)
 	{
-		// stack_print(a);
-		// stack_print(b);
-		stack_max(a, &min,&max);
+		stack_max(a, &min, &max);
 		ps_cost(a, b);
 		item = select_costless(b);
 		if (item->operator == OP_R)
