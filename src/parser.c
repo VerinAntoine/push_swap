@@ -50,7 +50,7 @@ t_stack	*ps_parse(size_t n, char **args)
 {
 	t_stack	*stack;
 	size_t	i;
-	int		number;
+	long	number;
 
 	stack = ft_calloc(1, sizeof(t_stack));
 	if (!stack)
@@ -58,8 +58,8 @@ t_stack	*ps_parse(size_t n, char **args)
 	i = -1;
 	while (++i < n)
 	{
-		number = ft_atoi(args[i]);
-		if (!is_number(args[i]) || is_in(stack, number))
+		number = ft_atol(args[i]);
+		if (!is_number(args[i]) || is_in(stack, number) || number < INT_MIN || number > INT_MAX || ft_strlen(args[i]) > 11)
 			return (ft_dprintf(2, "Error\n"), stack_free(stack), NULL);
 		stack_add(stack, number);
 	}
