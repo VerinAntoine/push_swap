@@ -1,6 +1,6 @@
 NAME		= push_swap
 CC			= cc
-CCFLAGS		= -Wall -Wextra -Werror -g3
+CCFLAGS		= -Wall -Wextra -Werror
 INCLUDES	= includes/
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
@@ -12,16 +12,25 @@ SRCS		= $(addprefix src/, main.c parser.c operation.c operation_extra.c\
 STACK_SRCS	= $(addprefix ft_stack/, stack_add.c stack_last.c stack_print.c\
 				stack_swap.c stack_free.c stack_rotate.c stack_rvs_rotate.c stack_push.c\
 				stack_is_ordered.c stack_max.c stack_size.c stack_index.c)
+BONUS_SRCS	= $(addprefix src_checker/, main.c)
 OBJS		= ${addprefix $(OBJ_DIR)/, ${SRCS:.c=.o} ${STACK_SRCS:.c=.o}}
+BONUS_OBS	= $(addprefix $(OBJ_DIR)/, $(BONUS_SRCS:.c=.o) $(STACK_SRCS:.c=.o) src/parser.o)
 
 $(NAME): $(OBJS) $(LIBS)
-	@echo '* Assembling $@'
+	@echo '* Compiling $@'
 	@$(CC) $(CCFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@echo '== $@ compilled =='
+
+bonus:  $(BONUS_OBS) $(LIBS)
+	@echo '* Compiling checker'
+	@$(CC) $(CCFLAGS) $(BONUS_OBS) $(LIBS) -o checker
+	@echo '== checker compilled =='
 
 $(OBJ_DIR)/%.o: %.c
 	@mkdir -p obj
 	@mkdir -p obj/src
 	@mkdir -p obj/ft_stack
+	@mkdir -p obj/src_checker
 	@echo '- Compiling $<'
 	@$(CC) $(CCFLAGS) -c $< -o $@ -I $(INCLUDES)
 

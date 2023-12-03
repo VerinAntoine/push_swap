@@ -17,6 +17,8 @@ void	stack_push(t_stack *from, t_stack *to)
 	t_stack_item	*item;
 
 	item = from->items;
+	if (!item)
+		return ;
 	if (item->next)
 		item->next->previous = NULL;
 	from->items = item->next;

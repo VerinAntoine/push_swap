@@ -28,6 +28,7 @@ typedef struct s_list
 int		ft_printf(const char *s, ...);
 int		ft_dprintf(int fd, const char *s, ...);
 char	*get_next_line(int fd);
+char	*oget_next_line(int fd, char **line);
 
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);

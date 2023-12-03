@@ -3,5 +3,6 @@ obj/
 push_swap_tester/
 push_swap_visualizer/
 push_swap
+checker
 test.c
 imgui.ini

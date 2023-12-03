@@ -18,7 +18,11 @@ void	stack_swap(t_stack *stack)
 	t_stack_item	*second;
 
 	first = stack->items;
+	if (!first)
+		return ;
 	second = first->next;
+	if (!second)
+		return ;
 	if (second->next)
 		second->next->previous = first;
 	stack->items = second;
