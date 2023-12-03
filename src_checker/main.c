@@ -6,7 +6,7 @@
 /*   By: antoine <antoine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 00:12:47 by antoine           #+#    #+#             */
-/*   Updated: 2023/12/03 01:16:58 by antoine          ###   ########.fr       */
+/*   Updated: 2023/12/03 01:19:19 by antoine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ static int	perform_operations(t_stack *a, t_stack *b)
 	char	*trimmed;
 
 	line = NULL;
-	stack_print(a);
-	stack_print(b);
 	while (oget_next_line(0, &line))
 	{
 		trimmed = ft_strtrim(line, "\n");
